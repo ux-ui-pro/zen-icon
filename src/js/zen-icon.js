@@ -1,13 +1,5 @@
 export function ZenIcon(options) {
-    let defaultOptions = {
-        file: './icons.svg',
-        revision: '1'
-    }
-
-    options = {
-        ...defaultOptions,
-        ...options
-    }
+    options = { ...options }
 
     this.init = () => {
         let file = options.file,
@@ -35,26 +27,24 @@ export function ZenIcon(options) {
             }
         }
 
-        try {
-            request = new XMLHttpRequest()
-            request.open('GET', file, true)
-            request.onload = () => {
-                if (request.status >= 200 && request.status < 400) {
-                    data = request.responseText
-                    insert()
-                    if (isLocalStorage) {
-                        localStorage.setItem('inlineSVGdata', data)
-                        localStorage.setItem('inlineSVGrev', revision)
-                    }
+        request = new XMLHttpRequest()
+        request.open('GET', file, true)
+        request.onload = () => {
+            if (request.status >= 200 && request.status < 400) {
+                data = request.responseText
+                insert()
+                if (isLocalStorage) {
+                    localStorage.setItem('inlineSVGdata', data)
+                    localStorage.setItem('inlineSVGrev', revision)
                 }
             }
-            request.send()
-        } catch (e) {
         }
-
+        request.send()
     }
 
-    this.init()
+    document.addEventListener('DOMContentLoaded', () => {
+        if (document.getElementById('iconset') === null) {
+            this.init()
+        }
+    })
 }
-
-

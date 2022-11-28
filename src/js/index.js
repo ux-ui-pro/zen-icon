@@ -1,6 +1,6 @@
-import { ZenIcon } from './modules/zen-icon.js'
+import { ZenIcon } from './zen-icon.js'
 
 new ZenIcon({
-    file: './img/svg/icons.svg',
-    revision: '79'
+    file: './icon-sprite.svg',
+    revision: '1'
 })

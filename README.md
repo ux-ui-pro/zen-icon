@@ -23,14 +23,14 @@ import { ZenIcon } from 'zen-icon'
 
 ```javascript
 new ZenIcon({
-    file: './img/icons.svg',
-    revision: '77'
+	file: './icon-sprite.svg',
+	revision: '1'
 })
 ```
 
 ### Create an icon sprite
 ```HTML
-<svg aria-hidden="true" focusable="false" style="width: 0; height: 0; position: absolute;">
+<svg id="iconset" aria-hidden="true" style="width: 0; height: 0; position: absolute;">
 	<symbol id="icon-name" viewBox="0 0 100 100">
 		<path ... />
 	</symbol>
