@@ -42,9 +42,7 @@ export function ZenIcon(options) {
         request.send()
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        if (document.getElementById('iconset') === null) {
-            this.init()
-        }
-    })
+    if (document.getElementById('iconset') === null) {
+        this.init()
+    }
 }
